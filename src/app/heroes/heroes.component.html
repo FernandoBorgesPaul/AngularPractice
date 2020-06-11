@@ -1,0 +1,14 @@
+<!-- Update the binding in the template to announce the hero's name and show both id and name in a details layout like this:-->
+<!-- The word uppercase in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe.-->
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <!-- To list them all, add an *ngFor to the <li> to iterate through the list of heroes: -->
+  <!-- The Angular class binding makes it easy to add and remove a CSS class conditionally. Just add [class.some-css-class]="some-condition" to the element you want to style. -->
+  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+<!-- The HeroDetailComponent selector is 'app-hero-detail'. Add an <app-hero-detail> element near the bottom of the HeroesComponent template, 
+  where the hero detail view used to be.
+  Bind the HeroesComponent.selectedHero to the element's hero property like this: -->
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
