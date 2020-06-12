@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero';       //Return to the HeroesComponent class and import the Hero interface.
 import { HeroService } from "../hero.service";
 //Delete the HEROES import, because you won't need that anymore. Import the HeroService instead.
 //import { HEROES } from "../mock-heroes"; //Open the HeroesComponent class file and import the mock HEROES.
+import { MessageService } from "../message.service";
 
 @Component({
   selector: 'app-heroes',
@@ -25,7 +27,7 @@ export class HeroesComponent implements OnInit {
   }
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService, private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -34,9 +36,10 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add('HeroService: Selected hero id=${hero.id}'); //shows how to send and display a message each time the user clicks on a hero, showing a history of the user's selections.
   }
 
-  //Create a function to retrieve the heroes from the service.ORIGINAL
+  //Create a function to retrieve the heroes from the service.  ORIGINAL
   // getHeroes(): void {
   //   this.heroes = this.heroService.getHeroes();
   // }

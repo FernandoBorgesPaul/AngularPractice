@@ -1,6 +1,6 @@
 
 // Open MessageService and replace its contents with the following
-
+//The service exposes its cache of messages and two methods: one to add() a message to the cache and another to clear() the cache.
 import { Injectable } from '@angular/core';
 
 @Injectable({
