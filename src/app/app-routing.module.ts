@@ -6,7 +6,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
-
+import { DashboardComponent } from "./dashboard/dashboard.component";  //To navigate to the dashboard, the router needs an appropriate route.
+                                                                       // Import the DashboardComponent in the AppRoutingModule.
+import { HeroDetailComponent } from "./hero-detail/hero-detail.component";
 
 //Since AppRoutingModule already imports HeroesComponent, you can use it in the routes array:
 //A typical Angular Route has two properties:
@@ -15,7 +17,11 @@ import { HeroesComponent } from './heroes/heroes.component';
 // This tells the router to match that URL to path: 'heroes' and display the HeroesComponent when the URL is something like localhost:4200/heroes.
 
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }
+  { path: 'heroes', component: HeroesComponent },
+  {path: 'dashboard', component: DashboardComponent},  //Add a route to the AppRoutingModule.routes array that matches a path to the DashboardComponent.
+  {path: ' ', redirectTo:'/dashboard', pathMatch: 'full'},  //This route redirects a URL that fully matches the empty path to the route whose path is '/dashboard'.
+                                                           //After the browser refreshes, the router loads the DashboardComponent and the browser address bar shows the /dashboard URL.
+  {path: 'detail/:id', component: HeroDetailComponent}  //The colon (:) in the path indicates that :id is a placeholder for a specific hero id.
 ];
 //The @NgModule metadata initializes the router and starts it listening for browser location changes.
 @NgModule({

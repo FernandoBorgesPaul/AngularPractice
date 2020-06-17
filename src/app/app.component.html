@@ -1,7 +1,9 @@
 <h1>{{title}}</h1>
 <!-- <app-heroes></app-heroes> The AppComponent template no longer needs <app-heroes> because the app will only display the HeroesComponent when the user navigates to it. -->
     <nav>
-        <a routerLink="/heroes">Heroes</a> <!-- Add a <nav> element and, within that, an anchor element that, when clicked, triggers navigation to the HeroesComponent -->
+     <a routerLink="/dashboard">Dashboard</a>  <!--  Add a dashboard navigation link to the AppComponent shell template, just above the Heroes link. -->
+     <br>
+     <a routerLink="/heroes">Heroes</a> <!-- Add a <nav> element and, within that, an anchor element that, when clicked, triggers navigation to the HeroesComponent -->
       </nav>
     <router-outlet></router-outlet>   <!-- Open the AppComponent template and replace the <app-heroes> element with a <router-outlet> element. -->
 <app-messages></app-messages>
