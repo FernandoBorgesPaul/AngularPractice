@@ -4,11 +4,16 @@
 <ul class="heroes">
   <!-- To list them all, add an *ngFor to the <li> to iterate through the list of heroes: -->
   <!-- The Angular class binding makes it easy to add and remove a CSS class conditionally. Just add [class.some-css-class]="some-condition" to the element you want to style. -->
-  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}"><span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    
   </li>
 </ul>
+
+
+<!-- Legacy code -->
 <!-- The HeroDetailComponent selector is 'app-hero-detail'. Add an <app-hero-detail> element near the bottom of the HeroesComponent template, 
   where the hero detail view used to be.
   Bind the HeroesComponent.selectedHero to the element's hero property like this: -->
-  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+  <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->

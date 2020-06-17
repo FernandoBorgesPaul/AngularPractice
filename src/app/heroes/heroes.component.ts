@@ -17,27 +17,27 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[]; //Replace the definition of the heroes property with a simple declaration.
 
-  selectedHero: Hero;
+  //selectedHero: Hero;
 
 
   //Refactor the component's hero property to be of type Hero. Initialize it with an id of 1 and the name Windstorm.
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  }
+  // hero: Hero = {
+  //   id: 1,
+  //   name: 'Windstorm'
+  // }
 
   constructor(
-    private heroService: HeroService, private messageService: MessageService
+     private heroService: HeroService, //private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
     this.getHeroes()
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add('HeroService: Selected hero id=${hero.id}'); //shows how to send and display a message each time the user clicks on a hero, showing a history of the user's selections.
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add('HeroService: Selected hero id=${hero.id}'); //shows how to send and display a message each time the user clicks on a hero, showing a history of the user's selections.
+  // }
 
   //Create a function to retrieve the heroes from the service.  ORIGINAL
   // getHeroes(): void {
@@ -45,7 +45,8 @@ export class HeroesComponent implements OnInit {
   // }
 
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
   }
 
 }
