@@ -19,7 +19,7 @@ import { HeroDetailComponent } from "./hero-detail/hero-detail.component";
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   {path: 'dashboard', component: DashboardComponent},  //Add a route to the AppRoutingModule.routes array that matches a path to the DashboardComponent.
-  {path: ' ', redirectTo:'/dashboard', pathMatch: 'full'},  //This route redirects a URL that fully matches the empty path to the route whose path is '/dashboard'.
+  {path: '', redirectTo:'/dashboard', pathMatch: 'full'},  //This route redirects a URL that fully matches the empty path to the route whose path is '/dashboard'.
                                                            //After the browser refreshes, the router loads the DashboardComponent and the browser address bar shows the /dashboard URL.
   {path: 'detail/:id', component: HeroDetailComponent}  //The colon (:) in the path indicates that :id is a placeholder for a specific hero id.
 ];
