@@ -99,4 +99,19 @@ deleteHero(hero: Hero | number): Observable<Hero> {
   );
 }
 
+/* GET heroes whose name contains search term */
+//The method returns immediately with an empty array if there is no search term. The rest of it closely resembles getHeroes(), the only significant difference being the URL, which includes a query string with the search term.
+searchHeroes(term: string): Observable<Hero[]> {
+  if (!term.trim()) {
+    // if not search term, return empty hero array.
+    return of([]);
+  }
+  return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    tap(x => x.length ?
+       this.log(`found heroes matching "${term}"`) :
+       this.log(`no heroes matching "${term}"`)),
+    catchError(this.handleError<Hero[]>('searchHeroes', []))
+  );
+}
+
 }
